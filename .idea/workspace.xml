@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f2e6256-c28d-4838-85d3-2ab685b0e440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Services/Db.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyProject/View/View.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/settings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/articles/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/errors/404.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/footer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/header.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/main/bye.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/main/hello.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/main/main.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/styles.css" afterDir="false" />
+    <list default="true" id="2f2e6256-c28d-4838-85d3-2ab685b0e440" name="Default Changelist" comment="MVC">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Users/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Users/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Services/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Services/Db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/articles/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/articles/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/main/main.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +79,8 @@
       <workItem from="1607601932342" duration="3444000" />
       <workItem from="1607851520220" duration="641000" />
       <workItem from="1607886188262" duration="5949000" />
-      <workItem from="1607943851479" duration="16181000" />
+      <workItem from="1607943851479" duration="16293000" />
+      <workItem from="1608063517128" duration="10826000" />
     </task>
     <servers />
   </component>
@@ -104,8 +97,27 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="MVC" />
+    <option name="LAST_COMMIT_MESSAGE" value="MVC" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Models/Users/User.php</url>
+          <line>8</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php</url>
+          <line>37</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
