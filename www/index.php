@@ -1,12 +1,13 @@
 <?php
-function myAutoLoad(string $className)
-{
+/*
+ * Автозагрузка файлов, через аннонимную функцию
+ */
+spl_autoload_register(function (string $className) {
 	require_once __DIR__ . '/../src/' . $className . '.php';
-}
+});
 
-spl_autoload_register('myAutoLoad');
+$routes = require __DIR__ . '/../src/routes.php';
 $route = $_GET['route'] ?? '';
-$routes = require_once __DIR__ . '/../src/routes.php';
 
 $isRouteFound = false;
 foreach ($routes as $pattern => $controllerAndAction) {
@@ -16,12 +17,10 @@ foreach ($routes as $pattern => $controllerAndAction) {
 		break;
 	}
 }
-
-if (!$isRouteFound) {
-	echo 'Страница не найдена!';
+if (empty($matches)) {
+	echo 'Страница не найдена';
 	return;
 }
-
 unset($matches[0]);
 
 $controllerName = $controllerAndAction[0];
@@ -29,3 +28,5 @@ $actionName = $controllerAndAction[1];
 
 $controller = new $controllerName();
 $controller->$actionName(...$matches);
+
+var_dump(\MyProject\Services\Db::getInstanceCount());

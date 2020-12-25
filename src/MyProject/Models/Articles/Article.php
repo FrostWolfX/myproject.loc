@@ -2,39 +2,15 @@
 
 namespace MyProject\Models\Articles;
 
+use MyProject\Models\ActiveRecordEntity;
 use MyProject\Models\Users\User;
 
-class Article
+class Article extends ActiveRecordEntity
 {
-	/** @var int */
-	private $id;
-
-	/** @var string */
-	private $name;
-
-	/** @var string */
-	private $text;
-
-	/** @var int */
-	private $authorId;
-
-	/** @var string */
-	private $createdAt;
-
-
-	public function __set(string $name, string $value)
-	{
-		$camelCaseName = $this->underscoreToCamelCase($name);
-		$this->$camelCaseName = $value;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getId(): int
-	{
-		return $this->id;
-	}
+	protected int $authorId;
+	protected string $name;
+	protected string $text;
+	protected string $createdAt;
 
 	/**
 	 * @return string
@@ -53,15 +29,27 @@ class Article
 	}
 
 	/**
-	 * @return int
+	 * @return User
+	 * LazyLoad ленивая загрузка. Данные по автору загрузятся по запросу
 	 */
-	public function getAuthorId(): int
+	public function getAuthor(): User
 	{
-		return $this->authorId;
+		return User::getById($this->authorId);
 	}
 
-	private function underscoreToCamelCase(string $source): string
+	/**
+	 * @return string
+	 */
+	public function getCreatedAt(): string
 	{
-		return lcfirst(str_replace('_', '', ucwords($source, '_')));
+		return $this->createdAt;
+	}
+
+	/*
+	 * Передаю в запрос в модели родителя ActiveRecordEntity название таблицы
+	 */
+	protected static function getNameTable(): string
+	{
+		return 'articles';
 	}
 }

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>
-		<?= $title ?? 'Мой блог' ?>
+		<?= $title ?? 'Мой блог'; ?>
     </title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <table class="layout">
     <tr>
         <td colspan="2" class="header">
-			<?= $title ?? 'Мой блог' ?>
+            <?= $title ?? 'Мой блог' ?>
         </td>
     </tr>
     <tr>

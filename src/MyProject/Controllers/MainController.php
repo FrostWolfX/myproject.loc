@@ -3,27 +3,27 @@
 namespace MyProject\Controllers;
 
 use MyProject\Models\Articles\Article;
-use MyProject\Services\Db;
-use MyProject\View\View;
+use MyProject\Views\View;
 
 class MainController
 {
-	/** @var View */
 	private View $view;
-
-	/** @var Db */
-	private Db $db;
 
 	public function __construct()
 	{
-		$this->view = new View(__DIR__ . '/../../templates');
-		$this->db = new Db();
+		$this->view = new View('/../../../templates');
 	}
 
 	public function main()
 	{
-		$articles = $this->db->query('SELECT * FROM `articles`;', [], Article::class);
-		$this->view->renderHtml('main/main.php', ['articles' => $articles, 'title' => 'Мой блог']);
+		/**
+		 * получаю статьи
+		 */
+		$articles = Article::findAll();
+		/*
+		 * загружаю страницу view пользователю
+		 */
+		$this->view->renderHtml('main/main.php', ['articles' => $articles, 'title' => 'Главная страница']);
 	}
 
 	public function sayHello(string $name)
@@ -34,5 +34,10 @@ class MainController
 	public function sayBye(string $name)
 	{
 		$this->view->renderHtml('main/bye.php', ['name' => $name, 'title' => 'Страница выхода']);
+	}
+
+	public function store()
+	{
+		$this->view->renderHtml('main/store.php', ['title' => 'Магазин']);
 	}
 }

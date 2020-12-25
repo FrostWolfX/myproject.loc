@@ -2,34 +2,16 @@
 
 namespace MyProject\Models\Users;
 
-use MyProject\Models\Articles\Article;
+use MyProject\Models\ActiveRecordEntity;
 
-
-class User
+class User extends ActiveRecordEntity
 {
-	private $id;
-	private $nickname;
-	private $email;
-	private $is_confirmed;
-	private $role;
-	private $password_hash;
-	private $auth_token;
-	private $created_at;
-
-
-	public function __set(string $name, string $value)
-	{
-		$camelCaseName = $this->underscoreToCamelCase($name);
-		$this->$camelCaseName = $value;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getId(): int
-	{
-		return $this->id;
-	}
+	protected string $nickname;
+	protected string $email;
+	protected int $isConfirmed;
+	protected string $role;
+	protected string $password_hash;
+	protected string $authToken;
 
 	/**
 	 * @return string
@@ -39,8 +21,19 @@ class User
 		return $this->nickname;
 	}
 
-	private function underscoreToCamelCase(string $source): string
+	/**
+	 * @return string
+	 */
+	public function getEmail(): string
 	{
-		return lcfirst(str_replace('_', '', ucwords($source, '_')));
+		return $this->email;
+	}
+
+	/*
+	 * Передаю в запрос в модели родителя ActiveRecordEntity название таблицы
+	 */
+	protected static function getNameTable(): string
+	{
+		return 'users';
 	}
 }

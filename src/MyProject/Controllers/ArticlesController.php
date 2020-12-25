@@ -3,44 +3,36 @@
 namespace MyProject\Controllers;
 
 use MyProject\Models\Articles\Article;
-use MyProject\Models\Users\User;
 use MyProject\Services\Db;
-use MyProject\View\View;
+use MyProject\Views\View;
 
 class ArticlesController
 {
-	/** @var View */
-	private $view;
-
-	/** @var Db */
-	private $db;
+	private View $view;
 
 	public function __construct()
 	{
-		$this->view = new View(__DIR__ . '/../../templates');
-		$this->db = new Db();
+		$this->view = new View('/../../../templates');
 	}
 
-
-	public function view(int $articleId)
+	public function view(int $idArticle)
 	{
-		$result = $this->db->query(
-			'SELECT * FROM `articles` AS a 
-				WHERE a.id = :id;',
-			[':id' => $articleId],
-			Article::class
-		);
+		/**
+		 * получаю статьи
+		 */
+		$article = Article::getById($idArticle);
 
-		if ($result === []) {
+		if ($article === null) {
 			$this->view->renderHtml('errors/404.php', [], 404);
 			return;
 		}
-		$author = $this->db->query(
-			'SELECT * FROM `users` AS u 
-				WHERE u.id = :id;',
-			[':id' => $result[0]->getId()],
-			User::class);
-
-		$this->view->renderHtml('articles/view.php', ['article' => $result[0], 'author' => $author[0]]);
+		/*
+		 * загружаю страницу view пользователю
+		 */
+		$this->view->renderHtml('articles/view.php',
+			[
+				'article' => $article
+			]
+		);
 	}
 }
