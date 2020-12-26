@@ -21,11 +21,27 @@ class Article extends ActiveRecordEntity
 	}
 
 	/**
+	 * @param string $name
+	 */
+	public function setName(string $name): void
+	{
+		$this->name = $name;
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getText(): string
 	{
 		return $this->text;
+	}
+
+	/**
+	 * @param string $text
+	 */
+	public function setText(string $text): void
+	{
+		$this->text = $text;
 	}
 
 	/**
@@ -38,11 +54,24 @@ class Article extends ActiveRecordEntity
 	}
 
 	/**
+	 * @param int $authorId
+	 */
+	public function setAuthorId(int $authorId): void
+	{
+		$this->authorId = $authorId;
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getCreatedAt(): string
 	{
 		return $this->createdAt;
+	}
+
+	public function setCreatedAt(string $createdAt): void
+	{
+		$this->createdAt = $createdAt;
 	}
 
 	/*

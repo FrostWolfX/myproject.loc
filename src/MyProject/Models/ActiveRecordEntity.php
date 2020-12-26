@@ -50,6 +50,11 @@ abstract class ActiveRecordEntity
 	}
 
 	/**
+	 * @return string
+	 */
+	abstract protected static function getNameTable(): string;
+
+	/**
 	 * @param int $id
 	 * @return static|null
 	 * Получаю объект нужной таблицы
@@ -78,6 +83,80 @@ abstract class ActiveRecordEntity
 		return $db->query('SELECT * FROM `' . static::getNameTable() . '`', [], static::class);
 	}
 
-	abstract protected static function getNameTable(): string;
+	public function save(): void
+	{
+		$mappedProperties = $this->mapPropertiesToDbFormat();
+		if ($mappedProperties['id'] != null) {
+			if ($this->id != null) {
+				$this->update($mappedProperties);
+			}
+		} else {
+			$this->create($mappedProperties);
+		}
+	}
 
+	public function update(array $mappedProperties): void
+	{
+		$columns2params = [];
+		$params2value = [];
+		$index = 1;
+		foreach ($mappedProperties as $key => $value) {
+			$param = ':param' . $index;
+			$columns2params[] = $key . ' = ' . $param;
+			$params2value[$param] = $value;
+			$index++;
+		}
+
+		$sql = 'UPDATE ' . static::getNameTable() .
+			' SET ' . implode(', ', $columns2params) .
+			' WHERE id = ' . $this->id;
+		$db = Db::getInstance();
+		$db->query($sql, $params2value, static::class);
+	}
+
+	public function create(array $mappedProperties): void
+	{
+		$columns2params = [];
+		$params2value = [];
+		$index = 1;
+		foreach ($mappedProperties as $key => $value) {
+			$param = ':param' . $index;
+			$columns2params[] = $key;
+			$params2value[$param] = $value;
+			$params[] = $param;
+			$index++;
+		}
+
+		$sql = 'INSERT ' . static::getNameTable() .
+			' (' . implode(', ', $columns2params) .
+			') VALUES (' . implode(', ', $params) . ');';
+		$db = Db::getInstance();
+		$db->query($sql, $params2value, static::class);
+	}
+
+	public function mapPropertiesToDbFormat(): array
+	{
+		$reflector = new \ReflectionObject($this);
+		$properties = $reflector->getProperties();
+
+		$mappedProperties = [];
+		foreach ($properties as $property) {
+			$propertyName = $property->getName();
+			$propertyNameAsUnderscore = $this->camelCaseToUnderscore($propertyName);
+			if (empty($this->id) && $propertyName == 'id') {
+				$mappedProperties[$propertyNameAsUnderscore] = null;
+			} else {
+				$mappedProperties[$propertyNameAsUnderscore] = $this->$propertyName;
+			}
+
+		}
+		return $mappedProperties;
+	}
+
+	private function camelCaseToUnderscore(string $source): string
+	{
+		$underscrore = preg_replace('~[A-Z]~', '_$0', $source);
+		$lettersToLowCase = strtolower($underscrore);
+		return $lettersToLowCase;
+	}
 }

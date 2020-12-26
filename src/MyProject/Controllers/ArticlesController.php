@@ -35,4 +35,28 @@ class ArticlesController
 			]
 		);
 	}
+
+	public function edit(int $idArticle): void
+	{
+		$article = Article::getById($idArticle);
+
+		if ($article === null) {
+			$this->view->renderHtml('errors/404.php', [], 404);
+			return;
+		}
+
+		$article->setName('Статья про ежей');
+		$article->setText('Еж бежал по дорожке, на спине нес...');
+		$article->save();
+	}
+	public function create(): void
+	{
+		$article = new Article();
+
+		$article->setAuthorId(2);
+		$article->setName('Статья про ежей');
+		$article->setText('Еж бежал по дорожке, на спине нес...');
+		$article->setCreatedAt(date("Y-m-d H:i:s"));
+		$article->save();
+	}
 }

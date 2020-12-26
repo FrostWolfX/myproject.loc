@@ -5,7 +5,6 @@ namespace MyProject\Services;
 class Db
 {
 	private $pdo;
-	private static $instanceCount = 0;
 	private static $instance;
 
 	private function __construct()
@@ -17,7 +16,6 @@ class Db
 			$dbOption['user'],
 			$dbOption['password'],
 		);
-		self::$instanceCount++;
 	}
 
 	/**
@@ -35,14 +33,6 @@ class Db
 	}
 
 	/**
-	 * @return int
-	 */
-	public static function getInstanceCount(): int
-	{
-		return self::$instanceCount;
-	}
-
-	/**
 	 * @param string $sql
 	 * @param array $params
 	 * @param string $className
@@ -53,7 +43,6 @@ class Db
 	{
 		$stm = $this->pdo->prepare($sql);
 		$result = $stm->execute($params);
-
 
 		if (false === $result) {
 			return null;
