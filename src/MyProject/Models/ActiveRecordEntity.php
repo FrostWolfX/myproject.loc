@@ -83,15 +83,22 @@ abstract class ActiveRecordEntity
 		return $db->query('SELECT * FROM `' . static::getNameTable() . '`', [], static::class);
 	}
 
+	public function delete()
+	{
+		$db = Db::getInstance();
+		$db->query('DELETE FROM `' . static::getNameTable() . '` WHERE id = :id',
+			[':id' => $this->id]
+		);
+		$this->id = -1;
+	}
+
 	public function save(): void
 	{
 		$mappedProperties = $this->mapPropertiesToDbFormat();
-		if ($mappedProperties['id'] != null) {
-			if ($this->id != null) {
-				$this->update($mappedProperties);
-			}
+		if (!empty($this->id)) {
+			$this->update($mappedProperties);
 		} else {
-			$this->create($mappedProperties);
+			$this->insert($mappedProperties);
 		}
 	}
 
@@ -114,27 +121,31 @@ abstract class ActiveRecordEntity
 		$db->query($sql, $params2value, static::class);
 	}
 
-	public function create(array $mappedProperties): void
+	public function insert(array $mappedProperties): void
 	{
-		$columns2params = [];
-		$params2value = [];
-		$index = 1;
-		foreach ($mappedProperties as $key => $value) {
-			$param = ':param' . $index;
-			$columns2params[] = $key;
-			$params2value[$param] = $value;
-			$params[] = $param;
-			$index++;
+		$filteredProperties = array_filter($mappedProperties);
+
+		$columns = [];
+		$paramsNames = [];
+		$params2values = [];
+		foreach ($filteredProperties as $columnName => $value) {
+			$columns[] = '`' . $columnName . '`';
+			$paramName = ':' . $columnName;
+			$paramsNames[] = $paramName;
+			$params2values[$paramName] = $value;
 		}
 
-		$sql = 'INSERT ' . static::getNameTable() .
-			' (' . implode(', ', $columns2params) .
-			') VALUES (' . implode(', ', $params) . ');';
+		$columnsToSql = implode(', ', $columns);
+		$valueNameToSql = implode(', ', $paramsNames);
+
+		$sql = 'INSERT INTO ' . static::getNameTable() . ' (' . $columnsToSql . ') VALUES (' . $valueNameToSql . ');';
+
 		$db = Db::getInstance();
-		$db->query($sql, $params2value, static::class);
+		$db->query($sql, $params2values, static::class);
+		$this->id = $db->getLastInsertId();
 	}
 
-	public function mapPropertiesToDbFormat(): array
+	private function mapPropertiesToDbFormat(): array
 	{
 		$reflector = new \ReflectionObject($this);
 		$properties = $reflector->getProperties();
@@ -143,19 +154,15 @@ abstract class ActiveRecordEntity
 		foreach ($properties as $property) {
 			$propertyName = $property->getName();
 			$propertyNameAsUnderscore = $this->camelCaseToUnderscore($propertyName);
-			if (empty($this->id) && $propertyName == 'id') {
-				$mappedProperties[$propertyNameAsUnderscore] = null;
-			} else {
-				$mappedProperties[$propertyNameAsUnderscore] = $this->$propertyName;
-			}
-
+			$mappedProperties[$propertyNameAsUnderscore] = $this->$propertyName ?? null;
 		}
+
 		return $mappedProperties;
 	}
 
 	private function camelCaseToUnderscore(string $source): string
 	{
-		$underscrore = preg_replace('~[A-Z]~', '_$0', $source);
+		$underscrore = preg_replace('~(?<!^)[A-Z]~', '_$0', $source);
 		$lettersToLowCase = strtolower($underscrore);
 		return $lettersToLowCase;
 	}

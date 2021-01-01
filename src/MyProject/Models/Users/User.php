@@ -12,6 +12,7 @@ class User extends ActiveRecordEntity
 	protected string $role;
 	protected string $password_hash;
 	protected string $authToken;
+	protected string $createdAt;
 
 	/**
 	 * @return string

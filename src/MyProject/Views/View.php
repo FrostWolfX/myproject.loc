@@ -13,6 +13,7 @@ class View
 
 	public function renderHtml(string $templePath, array $vars = [], int $code = 200)
 	{
+
 		http_response_code($code);
 		extract($vars);
 		/*

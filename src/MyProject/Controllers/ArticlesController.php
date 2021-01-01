@@ -2,8 +2,9 @@
 
 namespace MyProject\Controllers;
 
+use MyProject\Exceptions\NotFoundException;
 use MyProject\Models\Articles\Article;
-use MyProject\Services\Db;
+use MyProject\Models\Users\User;
 use MyProject\Views\View;
 
 class ArticlesController
@@ -23,8 +24,7 @@ class ArticlesController
 		$article = Article::getById($idArticle);
 
 		if ($article === null) {
-			$this->view->renderHtml('errors/404.php', [], 404);
-			return;
+			throw new NotFoundException();
 		}
 		/*
 		 * загружаю страницу view пользователю
@@ -41,22 +41,34 @@ class ArticlesController
 		$article = Article::getById($idArticle);
 
 		if ($article === null) {
-			$this->view->renderHtml('errors/404.php', [], 404);
-			return;
+			throw new NotFoundException();
 		}
 
-		$article->setName('Статья про ежей');
-		$article->setText('Еж бежал по дорожке, на спине нес...');
+		$article->setName('1111');
+		$article->setText('22222');
 		$article->save();
 	}
-	public function create(): void
-	{
-		$article = new Article();
 
-		$article->setAuthorId(2);
-		$article->setName('Статья про ежей');
-		$article->setText('Еж бежал по дорожке, на спине нес...');
-		$article->setCreatedAt(date("Y-m-d H:i:s"));
+	public function add(): void
+	{
+		$author = User::getById(1);
+
+		$article = new Article();
+		$article->setAuthor($author);
+		$article->setName('Новое название статьи');
+		$article->setText('Новый текст статьи');
+
 		$article->save();
+
+		$article = Article::getById($article->getId());
+	}
+
+	public function delete(int $idArticle){
+		$article = Article::getById($idArticle);
+		if ($article === null) {
+			throw new NotFoundException();
+		}
+		$article->delete();
+		var_dump($article);
 	}
 }

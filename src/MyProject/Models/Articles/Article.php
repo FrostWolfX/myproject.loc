@@ -54,11 +54,11 @@ class Article extends ActiveRecordEntity
 	}
 
 	/**
-	 * @param int $authorId
+	 * @param User $author
 	 */
-	public function setAuthorId(int $authorId): void
+	public function setAuthor(User $author): void
 	{
-		$this->authorId = $authorId;
+		$this->authorId = $author->getId();
 	}
 
 	/**
@@ -69,7 +69,10 @@ class Article extends ActiveRecordEntity
 		return $this->createdAt;
 	}
 
-	public function setCreatedAt(string $createdAt): void
+	/**
+	 * @param string $createdAt
+	 */
+	public function setCreatedAt(string $createdAt)
 	{
 		$this->createdAt = $createdAt;
 	}

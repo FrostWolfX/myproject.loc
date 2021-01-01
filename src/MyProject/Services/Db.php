@@ -2,6 +2,8 @@
 
 namespace MyProject\Services;
 
+use MyProject\Exceptions\DbException;
+
 class Db
 {
 	private $pdo;
@@ -11,11 +13,16 @@ class Db
 	{
 		$dbOption = (require __DIR__ . '/../../settings.php')['db'];
 
-		$this->pdo = new \PDO(
-			'mysql:host=' . $dbOption['host'] . ';dbname=' . $dbOption['dbname'] . ';',
-			$dbOption['user'],
-			$dbOption['password'],
-		);
+		try {
+			$this->pdo = new \PDO(
+				'mysql:host=' . $dbOption['host'] . ';dbname=' . $dbOption['dbname'] . ';',
+				$dbOption['user'],
+				$dbOption['password'],
+			);
+			$this->pdo->exec('SET NAMES UTF8');
+		} catch (\PDOException $e) {
+			throw new DbException('Ошибка при подключении к БД ' . $e->getMessage());
+		}
 	}
 
 	/**
@@ -52,5 +59,10 @@ class Db
 		 * возвращаю ORM данные таблицы объектом, чтобы работать через ООП
 		 */
 		return $stm->fetchAll(\PDO::FETCH_CLASS, $className);
+	}
+
+	public function getLastInsertId(): int
+	{
+		return (int)$this->pdo->lastInsertId();
 	}
 }
