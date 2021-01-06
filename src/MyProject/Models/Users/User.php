@@ -55,6 +55,14 @@ class User extends ActiveRecordEntity
 		return $this->authToken;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getRole(): string
+	{
+		return $this->role;
+	}
+
 	/*
 	 * Передаю в запрос в модели родителя ActiveRecordEntity название таблицы
 	 */
@@ -139,5 +147,13 @@ class User extends ActiveRecordEntity
 	public function refreshAuthToken()
 	{
 		$this->authToken = sha1(random_bytes(100)) . sha1(random_bytes(100));
+	}
+
+	public function isAdmin(): bool
+	{
+		if ($this->getRole() !== 'admin') {
+			return false;
+		}
+		return true;
 	}
 }

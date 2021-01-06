@@ -2,28 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d65490b3-d94f-4174-ad29-11a704fd82bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Controllers/UsersController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Exceptions/ActivateException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Exceptions/InvalidArgumentException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Models/Users/UserActivationService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Services/EmailSender.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Services/UsersAuthService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/articles/add.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/errors/activationErrors.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mail/userActivation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/logout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/signUp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/users/signUpSuccessful.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MyProject/Exceptions/ForbiddenException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MyProject/Exceptions/UnauthorizedException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/401.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/403.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/headerForErrors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/users/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/AbstractController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/ActiveRecordEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/ActiveRecordEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Users/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Users/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Views/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Views/View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.php" afterDir="false" />
     </list>
@@ -98,7 +87,7 @@
       <workItem from="1609695149309" duration="1328000" />
       <workItem from="1609745127360" duration="9465000" />
       <workItem from="1609863324575" duration="17082000" />
-      <workItem from="1609939459164" duration="325000" />
+      <workItem from="1609939459164" duration="8134000" />
     </task>
     <servers />
   </component>
@@ -119,6 +108,33 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Controllers/AbstractController.php</url>
+          <line>15</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/header.php</url>
+          <line>17</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php</url>
+          <line>89</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/users/admin.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Models/Users/User.php</url>
+          <line>152</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="javascript-exception" />
       </default-breakpoints>

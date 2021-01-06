@@ -34,6 +34,12 @@ try {
 } catch (\MyProject\Exceptions\NotFoundException $e) {
 	$view = new \MyProject\Views\View('/../../../templates/errors');
 	$view->renderHtml('404.php', ['error' => $e->getMessage()], 404);
+} catch (\MyProject\Exceptions\UnauthorizedException $e) {
+	$view = new MyProject\Views\View('/../../../templates/errors');
+	$view->renderHtml('401.php', ['error' => $e->getMessage()], 401);
+} catch (\MyProject\Exceptions\ForbiddenException $e) {
+	$view = new MyProject\Views\View('/../../../templates/errors');
+	$view->renderHtml('403.php', ['error' => $e->getMessage()], 403);
 }
 
 
