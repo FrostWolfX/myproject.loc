@@ -36,7 +36,8 @@ try {
 	$view->renderHtml('404.php', ['error' => $e->getMessage()], 404);
 }
 
-interface MyPacketThrowable extends Throwable
+
+/*interface MyPacketThrowable extends Throwable
 {
 }
 
@@ -48,4 +49,4 @@ try {
 	throw new MyPackExeption();
 } catch (Throwable $e) {
 	echo 'thro222222222222';
-}
+}*/

@@ -3,17 +3,11 @@
 namespace MyProject\Controllers;
 
 use MyProject\Models\Articles\Article;
+use MyProject\Services\UsersAuthService;
 use MyProject\Views\View;
 
-class MainController
+class MainController extends AbstractController
 {
-	private View $view;
-
-	public function __construct()
-	{
-		$this->view = new View('/../../../templates');
-	}
-
 	public function main()
 	{
 		/**
@@ -23,7 +17,10 @@ class MainController
 		/*
 		 * загружаю страницу view пользователю
 		 */
-		$this->view->renderHtml('main/main.php', ['articles' => $articles, 'title' => 'Главная страница']);
+		$this->view->renderHtml('main/main.php', [
+			'articles' => $articles,
+			'title' => 'Главная страница'
+		]);
 	}
 
 	public function sayHello(string $name)

@@ -83,6 +83,20 @@ abstract class ActiveRecordEntity
 		return $db->query('SELECT * FROM `' . static::getNameTable() . '`', [], static::class);
 	}
 
+	public static function findOneByColumn(string $columnName, string $value): ?self
+	{
+		$db = Db::getInstance();
+		$result = $db->query(
+			'SELECT * FROM `' . static::getNameTable() . '` WHERE `' . $columnName . '` = :value LIMIT 1;',
+			[':value' => $value],
+			static::class
+		);
+		if ($result === []){
+			return null;
+		}
+		return $result[0];
+	}
+
 	public function delete()
 	{
 		$db = Db::getInstance();

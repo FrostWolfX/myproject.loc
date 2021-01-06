@@ -7,15 +7,8 @@ use MyProject\Models\Articles\Article;
 use MyProject\Models\Users\User;
 use MyProject\Views\View;
 
-class ArticlesController
+class ArticlesController extends AbstractController
 {
-	private View $view;
-
-	public function __construct()
-	{
-		$this->view = new View('/../../../templates');
-	}
-
 	public function view(int $idArticle)
 	{
 		/**
@@ -60,7 +53,7 @@ class ArticlesController
 
 		$article->save();
 
-		$article = Article::getById($article->getId());
+		header('Location: http://myproject.loc/index.php');
 	}
 
 	public function delete(int $idArticle){
