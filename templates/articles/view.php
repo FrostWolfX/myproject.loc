@@ -10,4 +10,7 @@
     <h3>Автор статьи <?= $article->getAuthor()->getNickname() ?></h3>
     <p>Email: <?= $article->getAuthor()->getEmail() ?></p>
     <hr>
+
+<?php include __DIR__ . '/../comments/comments.php'; ?>
+
 <?php include __DIR__ . '/../footer.php'; ?>

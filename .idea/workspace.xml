@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d65490b3-d94f-4174-ad29-11a704fd82bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/articles/edit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MyProject/Controllers/CommentsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/comments/comments.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/articles/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errors/403.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errors/403.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +51,7 @@
       <recent name="N:\OpenServer\domains\myproject.loc\templates\mail" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="N:\OpenServer\domains\myproject.loc\templates\comments" />
       <recent name="N:\OpenServer\domains\myproject.loc\templates\errors" />
     </key>
   </component>
@@ -84,6 +85,7 @@
       <workItem from="1609939459164" duration="8706000" />
       <workItem from="1610016152970" duration="7737000" />
       <workItem from="1610070508848" duration="342000" />
+      <workItem from="1610109161067" duration="11311000" />
     </task>
     <servers />
   </component>
@@ -129,6 +131,31 @@
           <url>file://$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php</url>
           <line>109</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php</url>
+          <line>9</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/comments/comments.php</url>
+          <line>6</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php</url>
+          <line>17</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php</url>
+          <line>85</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Controllers/CommentsController.php</url>
+          <line>10</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

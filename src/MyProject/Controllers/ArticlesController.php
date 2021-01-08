@@ -7,17 +7,21 @@ use MyProject\Exceptions\InvalidArgumentException;
 use MyProject\Exceptions\NotFoundException;
 use MyProject\Exceptions\UnauthorizedException;
 use MyProject\Models\Articles\Article;
+use MyProject\Models\Comments\Comment;
 use MyProject\Models\Users\User;
 use MyProject\Views\View;
 
 class ArticlesController extends AbstractController
 {
+	private $comments;
 	public function view(int $idArticle)
 	{
 		/**
 		 * получаю статьи
 		 */
 		$article = Article::getById($idArticle);
+		$this->comments = new CommentsController();
+		$comment = $this->comments->show($idArticle);
 
 		if ($article === null) {
 			throw new NotFoundException();
@@ -27,7 +31,8 @@ class ArticlesController extends AbstractController
 		 */
 		$this->view->renderHtml('articles/view.php',
 			[
-				'article' => $article
+				'article' => $article,
+				'comments' => $comment
 			]
 		);
 	}
