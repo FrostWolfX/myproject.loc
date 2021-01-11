@@ -20,6 +20,7 @@ class ArticlesController extends AbstractController
 		 * получаю статьи
 		 */
 		$article = Article::getById($idArticle);
+
 		$this->comments = new CommentsController();
 		$comment = $this->comments->show($idArticle);
 

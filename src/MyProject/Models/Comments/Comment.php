@@ -3,7 +3,10 @@
 namespace MyProject\Models\Comments;
 
 use MyProject\Controllers\CommentsController;
+use MyProject\Exceptions\InvalidArgumentException;
 use MyProject\Models\ActiveRecordEntity;
+use MyProject\Models\Articles\Article;
+use MyProject\Models\Users\User;
 use MyProject\Services\Db;
 
 class Comment extends ActiveRecordEntity
@@ -69,17 +72,17 @@ class Comment extends ActiveRecordEntity
 	/**
 	 * @param mixed $authorId
 	 */
-	public function setAuthorId($authorId): void
+	public function setAuthorId($author): void
 	{
-		$this->authorId = $authorId;
+		$this->authorId = $author;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getAuthorId()
+	public function getAuthor(): User
 	{
-		return $this->authorId;
+		return User::getById($this->authorId);
 	}
 
 	public static function findAllByCollumn(string $columnName, string $value)
@@ -96,5 +99,21 @@ class Comment extends ActiveRecordEntity
 			return null;
 		}
 		return $result;
+	}
+	public static function createFromArray(array $fields, User $author): Comment
+	{
+		if (empty($fields['text'])) {
+			throw new InvalidArgumentException('Не передан текст статьи');
+		}
+
+		$comment = new Comment();
+
+		$comment->setAuthorId($author->getId());
+		$comment->setArticleId($fields['articleId']);
+		$comment->setText($fields['text']);
+
+		$comment->save();
+
+		return $comment;
 	}
 }

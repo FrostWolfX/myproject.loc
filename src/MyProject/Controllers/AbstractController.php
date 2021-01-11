@@ -11,6 +11,7 @@ abstract class AbstractController
 	protected View $view;
 
 	protected $user;
+	protected $article;
 
 	public function __construct()
 	{

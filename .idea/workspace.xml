@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d65490b3-d94f-4174-ad29-11a704fd82bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Controllers/CommentsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/comments/comments.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MyProject/Controllers/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/commentsError.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/AbstractController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/AbstractController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/CommentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/CommentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/articles/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/comments/comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comments/comments.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/mail" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../code.mu" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -85,7 +88,11 @@
       <workItem from="1609939459164" duration="8706000" />
       <workItem from="1610016152970" duration="7737000" />
       <workItem from="1610070508848" duration="342000" />
-      <workItem from="1610109161067" duration="11311000" />
+      <workItem from="1610109161067" duration="16878000" />
+      <workItem from="1610144683700" duration="1904000" />
+      <workItem from="1610197565609" duration="8706000" />
+      <workItem from="1610228219094" duration="1356000" />
+      <workItem from="1610313387783" duration="763000" />
     </task>
     <servers />
   </component>
@@ -107,60 +114,39 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="php">
-          <url>file://$PROJECT_DIR$/src/MyProject/Controllers/AbstractController.php</url>
-          <line>15</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint type="php">
-          <url>file://$PROJECT_DIR$/templates/header.php</url>
-          <line>17</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint type="php">
-          <url>file://$PROJECT_DIR$/templates/users/admin.php</url>
-          <line>2</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="php">
-          <url>file://$PROJECT_DIR$/src/MyProject/Models/Users/User.php</url>
-          <line>152</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php</url>
-          <line>109</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php</url>
-          <line>9</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/templates/errors/commentsError.php</url>
+          <line>3</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/templates/comments/comments.php</url>
-          <line>6</line>
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php</url>
           <line>17</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php</url>
-          <line>85</line>
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/MyProject/Controllers/CommentsController.php</url>
-          <line>10</line>
-          <option name="timeStamp" value="17" />
+          <line>19</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php</url>
+          <line>78</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="javascript-exception" />
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PhpRemoteDebugRunConfigurationType">
+        <watch expression="$this" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
