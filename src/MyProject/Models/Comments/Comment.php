@@ -100,6 +100,7 @@ class Comment extends ActiveRecordEntity
 		}
 		return $result;
 	}
+
 	public static function createFromArray(array $fields, User $author): Comment
 	{
 		if (empty($fields['text'])) {
@@ -115,5 +116,27 @@ class Comment extends ActiveRecordEntity
 		$comment->save();
 
 		return $comment;
+	}
+
+	public static function findLast5Comments(int $limit): array
+	{
+		$db = Db::getInstance();
+		$countShow = 5;
+		$offset = $limit - 5;
+		return $db->query('SELECT * FROM `' . static::getNameTable() . '` ORDER BY create_at DESC LIMIT ' . $countShow . ' OFFSET ' . $offset, [], static::class);
+	}
+
+	public function updateFromArray(array $fields): Comment
+	{
+		if (empty($fields['text'])) {
+			throw new InvalidArgumentException('Не перед текст комментария');
+		}
+
+		$this->setText($fields['text']);
+
+		$this->save();
+
+		return $this;
+
 	}
 }
