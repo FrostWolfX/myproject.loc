@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d65490b3-d94f-4174-ad29-11a704fd82bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/admin/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/viewComments.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/comments/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/CommentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/CommentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Comments/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/admin.php" afterDir="false" />
-    </list>
+    <list default="true" id="4b45316c-d6da-44e5-89ec-b34a5c1e8bef" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,16 +10,12 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="PhpServers">
     <servers>
-      <server host="localhost" id="f3cc7e14-3625-4a95-93fa-f6a2f9e8fe23" name="localhost" />
+      <server host="localhost" id="56539924-a1c8-47a9-abcf-bb6bf37d3aac" name="localhost" />
     </servers>
   </component>
-  <component name="ProjectId" id="1m9viq94GG6E8Nq2asPRiNBhq4F" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1n6RfqQp8ZDX2JSNIESHdYpI1G9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,23 +24,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../code.mu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webshake-oop" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="N:\OpenServer\domains\myproject.loc\templates\mail" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="N:\OpenServer\domains\myproject.loc\templates\comments" />
-      <recent name="N:\OpenServer\domains\myproject.loc\templates\errors" />
+      <recent name="N:\OpenServer\domains\myBlog\templates\general" />
     </key>
   </component>
   <component name="RunManager">
@@ -66,61 +47,30 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d65490b3-d94f-4174-ad29-11a704fd82bd" name="Default Changelist" comment="" />
-      <created>1608918750314</created>
+      <changelist id="4b45316c-d6da-44e5-89ec-b34a5c1e8bef" name="Default Changelist" comment="" />
+      <created>1610708660301</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608918750314</updated>
-      <workItem from="1608918753445" duration="3324000" />
-      <workItem from="1608927636914" duration="1722000" />
-      <workItem from="1608970304651" duration="19407000" />
-      <workItem from="1609026917106" duration="3185000" />
-      <workItem from="1609041505967" duration="685000" />
-      <workItem from="1609079400333" duration="645000" />
-      <workItem from="1609153152721" duration="599000" />
-      <workItem from="1609172270366" duration="599000" />
-      <workItem from="1609260654903" duration="13884000" />
-      <workItem from="1609418694890" duration="7041000" />
-      <workItem from="1609514010819" duration="22152000" />
-      <workItem from="1609695149309" duration="1328000" />
-      <workItem from="1609745127360" duration="9465000" />
-      <workItem from="1609863324575" duration="17082000" />
-      <workItem from="1609939459164" duration="8706000" />
-      <workItem from="1610016152970" duration="7737000" />
-      <workItem from="1610070508848" duration="342000" />
-      <workItem from="1610109161067" duration="16878000" />
-      <workItem from="1610144683700" duration="1904000" />
-      <workItem from="1610197565609" duration="8706000" />
-      <workItem from="1610228219094" duration="1356000" />
-      <workItem from="1610313387783" duration="15134000" />
-      <workItem from="1610563789397" duration="7592000" />
+      <updated>1610708660301</updated>
+      <workItem from="1610708661588" duration="32427000" />
+      <workItem from="1611010298585" duration="544000" />
+      <workItem from="1611056031268" duration="24537000" />
+      <workItem from="1611230392003" duration="24464000" />
+      <workItem from="1611403422270" duration="16994000" />
+      <workItem from="1611436292529" duration="42000" />
+      <workItem from="1611437570266" duration="2096000" />
+      <workItem from="1611507213600" duration="5342000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <default-breakpoints>
-        <breakpoint enabled="true" type="javascript-exception" />
-      </default-breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="PhpRemoteDebugRunConfigurationType">
-        <watch expression="$this" />
+        <watch expression="$valueNameToSql" />
+        <watch expression="$GLOBALS['IDE_EVAL_CACHE']['b45ca701-7140-4809-b800-8266effdf117']" />
       </configuration>
     </watches-manager>
   </component>

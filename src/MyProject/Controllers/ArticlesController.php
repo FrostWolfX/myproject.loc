@@ -14,7 +14,7 @@ use MyProject\Views\View;
 class ArticlesController extends AbstractController
 {
 	private $comments;
-	public function view(int $idArticle)
+	public function view(int $idArticle, int $page = 1)
 	{
 		/**
 		 * получаю статьи
@@ -23,6 +23,9 @@ class ArticlesController extends AbstractController
 
 		$this->comments = new CommentsController();
 		$comment = $this->comments->show($idArticle);
+
+		$popularArticles = Article::findPopularArticle();
+		$articlesNew = Article::findLast5Article(5 * $page);
 
 		if ($article === null) {
 			throw new NotFoundException();
@@ -33,7 +36,9 @@ class ArticlesController extends AbstractController
 		$this->view->renderHtml('articles/view.php',
 			[
 				'article' => $article,
-				'comments' => $comment
+				'comments' => $comment,
+				'popularArticles' => $popularArticles,
+				'articlesNew'=>$articlesNew
 			]
 		);
 	}
@@ -78,7 +83,7 @@ class ArticlesController extends AbstractController
 
 		if (!empty($_POST)) {
 			try {
-				$article = Article::createFromArray($_POST, $this->user);
+				$article = Article::createFromArray($_POST, $_FILES, $this->user);
 			} catch (InvalidArgumentException $exception) {
 				$this->view->renderHtml('articles/add.php', ['error' => $exception->getMessage()]);
 				return;

@@ -20,10 +20,11 @@ class AdminController extends AbstractController
 		if (preg_match('~^admin/view/(\d+)$~', $_GET['route'], $number)) {
 			$page = $number[1];
 		}
-		$countAllArticles = ceil(count(Article::findAll()) / 5);
+		$countAllArticles = count(Article::findAll());
+		$countPages = ceil($countAllArticles / 5);
 		$articles = Article::findLast5Article(5 * $page);
 		$this->view->renderHtml('admin/view.php',
-			['articles' => $articles, 'countAllArticles' => $countAllArticles, 'page' => (int)$page]);
+			['articles' => $articles, 'countPages' => $countPages, 'page' => (int)$page]);
 	}
 
 	public function viewComments(int $page = 1)
@@ -37,9 +38,10 @@ class AdminController extends AbstractController
 		if (preg_match('~^admin/viewComments/(\d+)$~', $_GET['route'], $number)) {
 			$page = $number[1];
 		}
-		$countAllComments = ceil(count(Article::findAll()) / 5);
+		$countAllComments = count(Comment::findAll());
+		$countPages = ceil($countAllComments / 5);
 		$comments = Comment::findLast5Comments(5 * $page);
 		$this->view->renderHtml('admin/viewComments.php',
-			['comments' => $comments, 'countAllComments' => $countAllComments, 'page' => (int)$page]);
+			['comments' => $comments, 'countPages' => $countPages, 'countAllComments' => $countAllComments, 'page' => (int)$page]);
 	}
 }

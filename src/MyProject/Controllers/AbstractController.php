@@ -19,5 +19,4 @@ abstract class AbstractController
 		$this->view = new View('/../../../templates');
 		$this->view->setVar('user', $this->user);
 	}
-
 }

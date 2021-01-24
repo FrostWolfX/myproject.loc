@@ -4,6 +4,8 @@ namespace MyProject\Models\Users;
 
 use MyProject\Exceptions\InvalidArgumentException;
 use MyProject\Models\ActiveRecordEntity;
+use MyProject\Services\Upload;
+use MyProject\Services\UsersAuthService;
 
 class User extends ActiveRecordEntity
 {
@@ -14,6 +16,7 @@ class User extends ActiveRecordEntity
 	protected string $passwordHash;
 	protected string $authToken;
 	protected string $createdAt;
+	protected string $photo;
 
 	/**
 	 * @return string
@@ -63,6 +66,22 @@ class User extends ActiveRecordEntity
 		return $this->role;
 	}
 
+	/**
+	 * @param string $photo
+	 */
+	public function setPhoto(string $photo): void
+	{
+		$this->photo = $photo;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPhoto(): string
+	{
+		return $this->photo;
+	}
+
 	/*
 	 * Передаю в запрос в модели родителя ActiveRecordEntity название таблицы
 	 */
@@ -99,6 +118,9 @@ class User extends ActiveRecordEntity
 		if (strlen($userData['password']) < 8) {
 			throw new InvalidArgumentException('Пароль должен быть не менее 8 символов');
 		}
+		if ($userData['password'] !== $userData['password2']) {
+			throw new InvalidArgumentException('Пароли не совпадают');
+		}
 
 		$user = new User();
 		$user->nickname = $userData['nickname'];
@@ -107,6 +129,7 @@ class User extends ActiveRecordEntity
 		$user->isConfirmed = false;
 		$user->role = 'user';
 		$user->authToken = sha1(random_bytes(100)) . sha1(random_bytes(100));
+		$user->photo = '/img/author.png';
 		$user->save();
 
 		return $user;
@@ -155,5 +178,53 @@ class User extends ActiveRecordEntity
 			return false;
 		}
 		return true;
+	}
+
+	public static function changePassword(array $userData): User
+	{
+		if (empty($userData['passwordOld'])) {
+			throw new InvalidArgumentException('Не передан пароль');
+		}
+		if (strlen($userData['passwordNew1']) < 8) {
+			throw new InvalidArgumentException('Пароль должен быть не менее 8 символов');
+		}
+		if ($userData['passwordNew1'] !== $userData['passwordNew2']) {
+			throw new InvalidArgumentException('Пароли не совпадают');
+		}
+		$user = UsersAuthService::getUserByToken();
+
+		$user->password_hash = password_hash($userData['passwordNew1'], PASSWORD_DEFAULT);
+		$user->refreshAuthToken();
+		UsersAuthService::createToken($user);
+		$user->save();
+
+		return $user;
+	}
+
+	public static function changePhoto(array $userData): User
+	{
+		if (empty($userData['photo'])) {
+			throw new InvalidArgumentException('Фотография не передана');
+		}
+		$user = UsersAuthService::getUserByToken();
+		/*
+		 * проверка загружаемой картинки
+		 */
+		$result = Upload::checkPhoto($_FILES, $user->getNickname());
+		if ($result['error']) {
+			throw new InvalidArgumentException($result['error']);
+		} elseif ($result['result']) {
+			/*
+			 * Удаление первого слеша
+			 */
+			$photoToDelete = ltrim($user->getPhoto(), '/');
+			$user->setPhoto($result['result']);
+			$user->save();
+			/*
+			 * Удаление старой фото
+			 */
+			unlink($photoToDelete);
+			return $user;
+		}
 	}
 }

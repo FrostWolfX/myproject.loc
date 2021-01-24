@@ -1,36 +1,109 @@
 <?php include __DIR__ . '/../header.php'; ?>
-<?php foreach ($articles as $article): ?>
-    <a href="/../articles/<?= $article->getId(); ?>"><?= $article->getName() ?></a>
+<?php include_once __DIR__ . '/../comments/services/formatDate.php'; ?>
 
-    <p style="text-align: right;">
-		<?php if ($user->isAdmin()): ?>
-            <a href="/articles/<?= $article->getId() ?>/edit" style="color: blue;">Редактировать статью</a>
-		<?php endif; ?>
-    </p>
+    <!-- section -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- col-md-8 -->
+                <div class="col-md-8">
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-title">
+                                <h2>Последнии статьи</h2>
+                            </div>
+                        </div>
 
-    <p><?= $article->getCreatedAt(); ?></p>
-    <p>
-		<?php
-		$text = $article->getText();
-		$lenghtTextIs100 = strlen($text);
-		if ($lenghtTextIs100 < 100) {
-			echo $text;
-		} else {
-			echo substr($text, 0, 100) . '...';
-		}
-		?>
-    </p>
-    <hr>
-<?php endforeach; ?>
-<?php for ($i = 1; $i <= $countAllArticles; $i++): ?>
-	<?php if ($page === $i): ?>
-        <a href="/../admin/view/<?= $i; ?>
-            " style="border: #90ee90 1px solid; padding: 5px; color: red; text-decoration: blue;"><?= $i; ?></a>
-	<?php else: ?>
-        <a href="/../admin/view/<?= $i; ?>
-            " style="border: #90ee90 1px solid; padding: 5px; color: green; text-decoration: none;"><?= $i; ?></a>
-	<?php endif; ?>
-<?php endfor; ?>
+						<?php foreach ($articles as $article): ?>
+                            <!-- post -->
+                            <div class="col-md-12">
+                                <div class="post post-row">
+                                    <a class="post-img" href="/articles/<?= $article->getId() ?>"><img
+                                                src="/img/post-4.jpg"
+                                                alt=""></a>
+                                    <div class="post-body">
+                                        <div class="post-meta">
+
+
+                                            <a class="post-category cat-2"
+                                               href="/articles/<?= $article->getId() ?>"><?= $article->getName() ?></a>
+                                            <span class="post-date"><?= dateFormat($article->getCreatedAt()) ?></span>
+                                        </div>
+                                        <h3 class="post-title"><a
+                                                    href="/articles/<?= $article->getId() ?>"><?= $article->getName() ?></a>
+                                        </h3>
+
+                                        <!-- Вывод краткого текста статьи только 100 символов -->
+										<?php
+										$text = $article->getText();
+										$lenghtTextIs100 = strlen($text);
+										if ($lenghtTextIs100 < 100) {
+											echo $text;
+										} else {
+											echo substr($text, 0, 100) . '...';
+										}
+										?>
+                                        <!-- /Вывод краткого текста статьи только 100 символов -->
+
+                                        <div class="post-meta">
+                                            <!-- кнопка редактировать статью -->
+                                            <p style="text-align: right;">
+												<?php if ($user->isAdmin()): ?>
+                                                    <a href="/articles/<?= $article->getId() ?>/edit">
+                                                        <button class="primary-button">Редактировать статью
+                                                        </button>
+                                                    </a>
+												<?php endif; ?>
+                                            </p>
+                                            <!-- /кнопка редактировать статью -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /post -->
+						<?php endforeach; ?>
+
+                        <!-- col-md-12 -->
+                        <div class="col-md-12">
+                            <div class="section-row text-align-to-center">
+
+                                <!-- Пагинация страниц -->
+	                            <?php if ($page > 1 && $page < $countPages): ?>
+                                    <a href="/../admin/view/<?= $page - 1; ?>">
+                                        <button class="primary-button primary-button-highlighted">Назад</button>
+                                    </a>
+                                    <a href="/../admin/view/<?= $page + 1; ?>">
+                                        <button class="primary-button">Далее</button>
+                                    </a>
+	                            <?php endif; ?>
+	                            <?php if ($page == $countPages): ?>
+                                    <a href="/../admin/view/<?= $page - 1; ?>">
+                                        <button class="primary-button primary-button-highlighted">Назад</button>
+                                    </a>
+	                            <?php endif; ?>
+	                            <?php if ($page === 1): ?>
+                                    <a href="/../admin/view/<?= $page + 1; ?>">
+                                        <button class="primary-button primary-button-highlighted">Далее</button>
+                                    </a>
+	                            <?php endif; ?>
+                                <!-- /Пагинация страниц -->
+
+                            </div>
+                        </div>
+                        <!-- /col-md-12 -->
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- /col-md-8 -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /section -->
 
 
 <?php include __DIR__ . '/../footer.php'; ?>

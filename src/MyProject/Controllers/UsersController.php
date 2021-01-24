@@ -4,9 +4,11 @@ namespace MyProject\Controllers;
 
 use MyProject\Exceptions\ActivateException;
 use MyProject\Exceptions\InvalidArgumentException;
+use MyProject\Exceptions\UnauthorizedException;
 use MyProject\Models\Users\User;
 use MyProject\Models\Users\UserActivationService;
 use MyProject\Services\EmailSender;
+use MyProject\Services\Upload;
 use MyProject\Services\UsersAuthService;
 use MyProject\Views\View;
 
@@ -86,5 +88,39 @@ class UsersController extends AbstractController
 	{
 		setcookie('token', '', -1, '/', '', false, true);
 		header('Location: /');
+	}
+
+	public function profile()
+	{
+		if ($this->user === null) {
+			throw new UnauthorizedException();
+		}
+		if (!empty($_POST)) {
+			/*
+			 * Задаем новый пароль
+			 */
+			if (!empty($_POST['changePassword'])) {
+				try {
+					$user = User::changePassword($_POST);
+				} catch (InvalidArgumentException $exception) {
+					$this->view->renderHtml('users/profile.php', ['error' => $exception->getMessage()], 404);
+					return;
+				}
+				$this->view->renderHtml('users/profile.php', ['successChangePassword' => true]);
+			} /*
+			 * загружаем фото пользователя
+			 */
+			elseif (!empty($_POST['changePhoto']) && !empty($_FILES)) {
+				try {
+					$user = User::changePhoto($_FILES);
+				} catch (InvalidArgumentException $exception) {
+					$this->view->renderHtml('users/profile.php', ['error' => $exception->getMessage()], 404);
+					return;
+				}
+				$this->view->renderHtml('users/profile.php', ['photo' => $user->getPhoto()]);
+			}
+		} else {
+			$this->view->renderHtml('users/profile.php');
+		}
 	}
 }

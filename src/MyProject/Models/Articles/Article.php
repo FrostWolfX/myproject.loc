@@ -6,6 +6,8 @@ use MyProject\Exceptions\InvalidArgumentException;
 use MyProject\Models\ActiveRecordEntity;
 use MyProject\Models\Users\User;
 use MyProject\Services\Db;
+use MyProject\Services\Upload;
+use MyProject\Services\UsersAuthService;
 
 class Article extends ActiveRecordEntity
 {
@@ -13,6 +15,8 @@ class Article extends ActiveRecordEntity
 	protected string $name;
 	protected string $text;
 	protected string $createdAt;
+	protected string $theme;
+	protected string $photo;
 
 	/**
 	 * @return string
@@ -79,6 +83,38 @@ class Article extends ActiveRecordEntity
 		$this->createdAt = $createdAt;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getTheme(): string
+	{
+		return $this->theme;
+	}
+
+	/**
+	 * @param string $theme
+	 */
+	public function setTheme(string $theme): void
+	{
+		$this->theme = $theme;
+	}
+
+	/**
+	 * @param string $photo
+	 */
+	public function setPhoto(string $photo): void
+	{
+		$this->photo = $photo;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPhoto(): string
+	{
+		return $this->photo;
+	}
+
 	/*
 	 * Передаю в запрос в модели родителя ActiveRecordEntity название таблицы
 	 */
@@ -87,7 +123,7 @@ class Article extends ActiveRecordEntity
 		return 'articles';
 	}
 
-	public static function createFromArray(array $fields, User $author): Article
+	public static function createFromArray(array $fields, $file, User $author): Article
 	{
 		if (empty($fields['name'])) {
 			throw new InvalidArgumentException('Не передано название статьи');
@@ -95,15 +131,31 @@ class Article extends ActiveRecordEntity
 		if (empty($fields['text'])) {
 			throw new InvalidArgumentException('Не передан текст статьи');
 		}
+		if (empty($fields['theme'])) {
+			throw new InvalidArgumentException('Не передана тема статьи');
+		}
+		if (empty($file['photo'])) {
+			throw new InvalidArgumentException('Не передано фото статьи');
+		}
 
 		$article = new Article();
+		/*
+		 * проверка загружаемой картинки
+		 */
+		$result = Upload::checkPhoto($file, $author->getNickname());
 
-		$article->setAuthor($author);
-		$article->setName($fields['name']);
-		$article->setText($fields['text']);
+		if ($result['error']) {
+			throw new InvalidArgumentException($result['error']);
+		} elseif ($result['result']) {
 
-		$article->save();
+			$article->setAuthor($author);
+			$article->setName($fields['name']);
+			$article->setText($fields['text']);
+			$article->setTheme($fields['theme']);
+			$article->setPhoto($result['result']);
 
+			$article->save();
+		}
 		return $article;
 	}
 
@@ -115,9 +167,13 @@ class Article extends ActiveRecordEntity
 		if (empty($fields['text'])) {
 			throw new InvalidArgumentException('Не передан текст статьи');
 		}
+		if (empty($fields['theme'])) {
+			throw new InvalidArgumentException('Не передана тема статьи');
+		}
 
 		$this->setName($fields['name']);
 		$this->setText($fields['text']);
+		$this->setTheme($fields['theme']);
 
 		$this->save();
 
@@ -131,5 +187,32 @@ class Article extends ActiveRecordEntity
 		$countShow = 5;
 		$offset = $limit - 5;
 		return $db->query('SELECT * FROM `' . static::getNameTable() . '` ORDER BY created_at DESC LIMIT ' . $countShow . ' OFFSET ' . $offset, [], static::class);
+	}
+
+	public static function findPopularArticle(): array
+	{
+		$db = Db::getInstance();
+		$popularComment = $db->query('SELECT article_id, COUNT(article_id) FROM `comments` GROUP BY article_id ORDER BY `COUNT(article_id)` DESC');
+
+		$columns = [];
+		$paramsNames = [];
+		$params2values = [];
+		$i = 0;
+		foreach ($popularComment as $columnName => $value) {
+			foreach ($value as $item) {
+
+				$paramName = ':' . 'article_id' . $i;
+				$columns[] = 'id = ' . $paramName;
+				$params2values[$paramName] = $item;
+				$i++;
+				break;
+			}
+		}
+		$columnsToSql = implode(' OR ', $columns);
+
+		$sql = 'SELECT * FROM `' . static::getNameTable() . '` WHERE ' . $columnsToSql;
+
+		$popularArticle = $db->query($sql, $params2values, static::class);
+		return $popularArticle;
 	}
 }

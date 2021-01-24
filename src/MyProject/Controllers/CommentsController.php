@@ -12,9 +12,7 @@ class CommentsController extends AbstractController
 {
 	public function show(int $idArticle)
 	{
-		$comment = Comment::findAllByCollumn('article_id', $idArticle);
-
-		return $comment;
+		return Comment::findAllByCollumn('article_id', $idArticle);
 	}
 
 	public function add()
