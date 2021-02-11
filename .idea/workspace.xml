@@ -2,40 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b45316c-d6da-44e5-89ec-b34a5c1e8bef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MyProject/Controllers/AboutController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/cli.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/ActiveRecordEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/ActiveRecordEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Users/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Users/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyProject/Services/EmailSender.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Services/EmailSender.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/viewComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/viewComments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/articles/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/articles/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/comments/comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comments/comments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/comments/services/formatDate.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comments/services/formatDate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errors/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errors/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errors/headerForErrors.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errors/headerForErrors.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mail/activationSuccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mail/activationSuccess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mail/userActivation.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mail/userActivation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/otherPages/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/otherPages/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/signUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/signUp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/signUpSuccessful.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/signUpSuccessful.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/style1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/img/photos/ddf 23-01-2021 22+04+28.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/img/photos/vlad 23-01-2021 22+04+00.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/img/photos/vlad 24-01-2021 21+01+57.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +81,7 @@
       <workItem from="1612270024147" duration="846000" />
       <workItem from="1612351688290" duration="1204000" />
       <workItem from="1612438823467" duration="489000" />
-      <workItem from="1612783375921" duration="52114000" />
+      <workItem from="1612783375921" duration="55071000" />
     </task>
     <servers />
   </component>
