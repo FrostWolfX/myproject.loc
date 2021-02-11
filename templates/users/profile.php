@@ -17,7 +17,7 @@
                         <div class="section-title">
                             <h3>Изменить пароль</h3>
 							<?php if (!empty($error)): ?>
-                                <div style="background-color: red;padding: 5px;margin: 15px"><?= $error ?></div>
+                                <div class="error"><?= $error ?></div>
 							<?php endif; ?>
 							<?php if ($successChangePassword === true): ?>
                                 <label><?= 'Пароль успешно изменен!' ?></label>

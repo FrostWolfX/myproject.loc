@@ -56,7 +56,9 @@
 
                                 <?= dateFormat($comment->getCreateAt()); ?>
                             </span>
+                            <!--доделать
                             <a href="#" class="reply">Reply</a>
+                            -->
                         </div>
                         <p id="comment<?= $comment->getId() ?>"><?= htmlspecialchars($comment->getText()) ?></p>
 

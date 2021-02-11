@@ -26,13 +26,16 @@ class UsersController extends AbstractController
 			if ($user instanceof User) {
 				$code = UserActivationService::createActivationCode($user);
 
-				EmailSender::send($user, 'Активация', 'userActivation.php',
+				$reuslt = EmailSender::send($user, 'Activation', 'userActivation.php',
 					[
 						'userId' => $user->getId(),
 						'code' => $code
 					]
 				);
-				$this->view->renderHtml('users/signUpSuccessful.php');
+
+				$this->view->renderHtml('users/signUpSuccessful.php',
+					['result' => $reuslt]
+				);
 				return;
 			}
 		}
@@ -101,7 +104,7 @@ class UsersController extends AbstractController
 			 */
 			if (!empty($_POST['changePassword'])) {
 				try {
-					$user = User::changePassword($_POST);
+					$user = User::changePassword($_POST, $this->user);
 				} catch (InvalidArgumentException $exception) {
 					$this->view->renderHtml('users/profile.php', ['error' => $exception->getMessage()], 404);
 					return;
@@ -112,7 +115,7 @@ class UsersController extends AbstractController
 			 */
 			elseif (!empty($_POST['changePhoto']) && !empty($_FILES)) {
 				try {
-					$user = User::changePhoto($_FILES);
+					$user = User::changePhoto($_FILES, $this->user);
 				} catch (InvalidArgumentException $exception) {
 					$this->view->renderHtml('users/profile.php', ['error' => $exception->getMessage()], 404);
 					return;

@@ -19,12 +19,13 @@
                         <div class="post-comments">
                             <!-- comment -->
 							<?php if (!empty($comments)): ?>
-							<?php foreach ($comments
-
-							as $comment): ?>
+							<?php foreach ($comments as $comment): ?>
                             <div class="media">
                                 <div class="media-left">
-                                    <img class="media-object" src="/img/avatar.png" alt="">
+                                    <img class="media-object"
+                                         src="<?php echo !empty($comment->getAuthor()->getPhoto())
+	                                    ? $comment->getAuthor()->getPhoto() : '/img/author.png' ?>"
+                                         alt="">
                                 </div>
                                 <div class="media-body">
                                     <div class="media-heading">
@@ -72,7 +73,7 @@
                             <div class="section-row text-align-to-center">
 
                                 <!-- Пагинация страниц -->
-	                            <?php if ($page > 1 && $page < $countPages): ?>
+	                            <?php if ($page > 1 && $page < $countPages && $countPages !== 1): ?>
                                     <a href="/../admin/comments/<?= $page - 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Назад</button>
                                     </a>
@@ -80,12 +81,12 @@
                                         <button class="primary-button">Далее</button>
                                     </a>
 	                            <?php endif; ?>
-	                            <?php if ($page == $countPages): ?>
+	                            <?php if ($page === $countPages && $countPages !== 1): ?>
                                     <a href="/../admin/comments/<?= $page - 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Назад</button>
                                     </a>
 	                            <?php endif; ?>
-	                            <?php if ($page === 1): ?>
+	                            <?php if ($page === 1 && $countPages === 1): ?>
                                     <a href="/../admin/comments/<?= $page + 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Далее</button>
                                     </a>

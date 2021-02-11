@@ -1,6 +1,7 @@
 <?php
 return [
 	'~^$~' => [\MyProject\Controllers\MainController::class, 'main'],
+	'~^about$~' => [\MyProject\Controllers\AboutController::class, 'about'],
 	'~^main/(\d+)$~' => [\MyProject\Controllers\MainController::class, 'main'],
 	'~^articles/(\d+)$~' => [\MyProject\Controllers\ArticlesController::class, 'view'],
 	'~^articles/(\d+)#comment\d+$~' => [\MyProject\Controllers\ArticlesController::class, 'view'],

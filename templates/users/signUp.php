@@ -17,7 +17,7 @@
                         <div class="section-title">
                             <h2>Регистрация</h2>
 							<?php if (!empty($error)): ?>
-                                <div style="background-color: red;padding: 5px;margin: 15px"><?= $error ?></div>
+                                <div class="error"><?= $error ?></div>
 							<?php endif; ?>
                         </div>
                         <form class="post-reply" action="/users/register" method="post">
@@ -27,19 +27,19 @@
                                         <label for="nickname">nickname</label>
                                         <input class="input" type="text" name="nickname" id="nickname"
                                                placeholder="nickname"
-                                               value="<?= $_POST['nickname'] ?? '' ?>">
+                                               value="<?= htmlspecialchars($_POST['nickname']) ?? '' ?>">
                                         <br><br>
                                         <label for="email">email</label>
                                         <input class="input" type="email" name="email" id="email" placeholder="email"
-                                               value="<?= $_POST['email'] ?? '' ?>">
+                                               value="<?= htmlspecialchars($_POST['email']) ?? '' ?>">
                                         <br><br>
                                         <label for="password">password</label>
                                         <input class="input" type="password" name="password" id="password"
-                                               placeholder="password" value="<?= $_POST['password'] ?? '' ?>">
+                                               placeholder="password" value="<?= htmlspecialchars($_POST['password']) ?? '' ?>">
                                         <br><br>
                                         <label for="password2">Повторите password</label>
                                         <input class="input" type="password" name="password2" id="password2"
-                                               placeholder="password" value="<?= $_POST['password2'] ?? '' ?>">
+                                               placeholder="password" value="<?= htmlspecialchars($_POST['password2']) ?? '' ?>">
                                     </div>
                                     <input type="submit" class="primary-button" value="Зарегистрироваться">
                                 </div>

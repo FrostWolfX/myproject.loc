@@ -17,10 +17,13 @@
                                 <div style="color: red;"><?= $error; ?></div>
 							<?php endif; ?>
                         </div>
-                        <form class="post-reply" action="/articles/<?= $article->getId() ?>/edit" method="post">
+                        <form class="post-reply" action="/articles/<?= $article->getId() ?>/edit" method="post"
+                              enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label>Главное фото статьи</label>
+                                        <input class="input" type="file" name="photo">
                                         <label for="name">Название статьи</label>
                                         <input class="input" type="text" name="name" id="name"
                                                placeholder="Название статьи"
@@ -40,7 +43,7 @@
                                         </select>
                                         <br><br>
                                         <label for="name">Текст статьи</label>
-                                        <textarea class="input" name="text"
+                                        <textarea id="textarea-admin" class="input" name="text"
                                                   placeholder="Текст статьи"><?= $_POST['text'] ?? $article->getText() ?></textarea>
                                     </div>
                                     <input type="submit" class="primary-button" value="Обновить">

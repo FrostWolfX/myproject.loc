@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="post-meta">
-                        <a class="post-category cat-2" href="category.html"><?= $article->getTheme() ?></a>
+                        <a class="post-category cat-2" href="/category.html"><?= $article->getTheme() ?></a>
                         <span class="post-date"><?= dateFormat($article->getCreatedAt()) ?></span>
                     </div>
                     <h1><?= $article->getName() ?></h1>
@@ -26,7 +26,7 @@
             <div class="row">
                 <!-- Post content -->
                 <div class="col-md-8">
-                    <div class="section-row sticky-container">
+                    <div class="section-row"><!-- добавить  sticky-container когда сделаю кнопки соц сетей-->
                         <div class="main-post">
                             <div class="post-meta">
                                 <!-- кнопка редактировать статью -->
@@ -44,12 +44,14 @@
                             </div>
 
                             <figure class="figure-img">
-                                <img class="img-responsive" src="/img/post-4.jpg" alt="">
-                                <figcaption>So Lorem Ipsum is bad (not necessarily)</figcaption>
+                                <img class="img-responsive" src="<?php echo !empty($article->getPhoto())
+									? $article->getPhoto() : '/img/post-4.jpg' ?>"
+                                     alt="">
+                                <!--<figcaption>So Lorem Ipsum is bad (not necessarily)</figcaption>-->
                             </figure>
 
-                            <h3><?= $article->getName() ?></h3>
-                            <p><?= $article->getText() ?></p>
+                            <h3 class="text-center"><?= $article->getName() ?></h3>
+                            <div><?= $article->getText() ?></div>
 
 
                             <!-- для кода или комментариев
@@ -59,6 +61,7 @@
                             -->
                         </div>
 
+                        <!--
                         <div class="post-shares sticky-shares">
                             <a href="#" class="share-facebook"><i class="fa fa-facebook"></i></a>
                             <a href="#" class="share-twitter"><i class="fa fa-twitter"></i></a>
@@ -66,6 +69,7 @@
                             <a href="#" class="share-linkedin"><i class="fa fa-linkedin"></i></a>
                             <a href="#"><i class="fa fa-envelope"></i></a>
                         </div>
+                        -->
                     </div>
 
                     <!-- author -->
@@ -80,11 +84,13 @@
                                         <h3><?= $article->getAuthor()->getNickname(); ?></h3>
                                     </div>
                                     <p><?= $article->getAuthor()->getEmail(); ?></p>
+                                    <!--доделать
                                     <ul class="author-social">
                                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
+                                    -->
                                 </div>
                             </div>
                         </div>
@@ -107,18 +113,18 @@
 						<?php foreach ($articlesNew as $article): ?>
 							<?php if ($i < 4): ?>
                                 <div class="post post-widget">
-                                    <a class="post-img" href="<?= $article->getId() ?>"><img src="/img/widget-1.jpg"
-                                                                                             alt=""></a>
+                                    <a class="post-img" href="<?= $article->getId() ?>">
+                                        <img src="<?php echo !empty($article->getPhoto())
+											? $article->getPhoto() : '/img/post-4.jpg' ?>"
+                                             alt=""></a>
                                     <div class="post-body">
                                         <h3 class="post-title"><a
-                                                    href="blog-post.html"><?= $article->getName() ?></a></h3>
+                                                    href="<?= $article->getId() ?>"><?= $article->getName() ?></a></h3>
                                     </div>
                                 </div>
 								<?php $i++; ?>
 							<?php endif; ?>
 						<?php endforeach; ?>
-
-
                     </div>
                     <!-- /post widget -->
 
@@ -132,12 +138,14 @@
 							<?php if ($i < 2): ?>
                                 <div class="post post-thumb">
                                     <a class="post-img" href="<?= $popularArticle->getId() ?>"><img
-                                                src="/img/post-2.jpg" alt=""></a>
+                                                src="<?php echo !empty($popularArticle->getPhoto())
+				                                    ? $popularArticle->getPhoto() : '/img/post-4.jpg' ?>"
+                                                alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-3"
                                                href="<?= $popularArticle->getId() ?>"><?= $popularArticle->getTheme() ?></a>
-                                            <span class="post-date"><?= $popularArticle->getCreatedAt() ?></span>
+                                            <span class="post-date"><?= dateFormat($popularArticle->getCreatedAt()) ?></span>
                                         </div>
                                         <h3 class="post-title"><a
                                                     href="<?= $popularArticle->getId() ?>"><?= $popularArticle->getName() ?></a>
@@ -150,9 +158,10 @@
                     </div>
                     <!-- /post widget -->
 
-					<?php include __DIR__ . '/../general/categoryAndTags.php'; ?>
+                    <!--доделать
+					<?php //include __DIR__ . '/../general/categoryAndTags.php'; ?>
 
-                    <!-- archive -->
+
                     <div class="aside-widget">
                         <div class="section-title">
                             <h2>Архив</h2>
@@ -165,7 +174,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- /archive -->
+                    -->
                 </div>
                 <!-- /aside -->
             </div>

@@ -59,7 +59,7 @@ class ArticlesController extends AbstractController
 
 		if (!empty($_POST)) {
 			try {
-				$article->updateFromArray($_POST);
+				$article->updateFromArray($_POST, $_FILES);
 			} catch (InvalidArgumentException $exception) {
 				$this->view->renderHtml('articles/edit.php', ['error' => $exception->getMessage(), 'article' => $article]);
 				return;
@@ -99,6 +99,16 @@ class ArticlesController extends AbstractController
 	public function delete(int $idArticle)
 	{
 		$article = Article::getById($idArticle);
+
+		if ($article === null) {
+			throw new NotFoundException();
+		}
+		if ($this->user === null) {
+			throw new UnauthorizedException();
+		}
+		if (!$this->user->isAdmin()){
+			throw new ForbiddenException();
+		}
 		if ($article === null) {
 			throw new NotFoundException();
 		}

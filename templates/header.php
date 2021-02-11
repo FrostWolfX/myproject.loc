@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/style1.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,12 +39,13 @@
             <div class="container">
                 <!-- logo -->
                 <div class="nav-logo">
-                    <a href="/index.php" class="logo"><img src="/img/logo.png" alt=""></a>
+                    <a href="/" class="logo"><img src="/img/logo.png" alt=""></a>
                 </div>
                 <!-- /logo -->
 
                 <!-- nav -->
                 <ul class="nav-menu nav navbar-nav">
+                    <!-- <li class=""><a href="">Свой собственный блог с блекджеком и на php</a></li> -->
                     <li class="cat-1"><a href="#">Новые</a></li>
                     <li class="cat-2"><a href="#">Популярные</a></li>
                     <li class="cat-3"><a href="#">PHP</a></li>
@@ -52,6 +53,7 @@
                 <!-- /nav -->
 
                 <!-- search & aside toggle -->
+
                 <div class="nav-btns">
                     <button class="aside-btn"><i class="fa fa-bars"></i></button>
                     <button class="search-btn"><i class="fa fa-search"></i></button>
@@ -60,6 +62,7 @@
                         <button class="search-close"><i class="fa fa-times"></i></button>
                     </div>
                 </div>
+
                 <!-- /search & aside toggle -->
             </div>
         </div>
@@ -92,14 +95,15 @@
             <!-- nav -->
             <div class="section-row">
                 <ul class="nav-aside-menu">
-                    <li><a href="/index.php">На главную</a></li>
-                    <li><a href="about.html">О сайте</a></li>
-                    <li><a href="contact.html">Контакты</a></li>
+                    <li><a href="/">На главную</a></li>
+                    <li><a href="/about">О сайте</a></li>
+                    <li><a href="/contact">Контакты</a></li>
                 </ul>
             </div>
             <!-- /nav -->
 
             <!-- social links -->
+            <!--доделать
             <div class="section-row">
                 <h3>Подписывайтесь</h3>
                 <ul class="nav-aside-social">
@@ -108,6 +112,7 @@
                     <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
                 </ul>
             </div>
+            -->
             <!-- /social links -->
 
             <!-- aside nav close -->

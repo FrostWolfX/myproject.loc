@@ -1,5 +1,5 @@
-<?php include __DIR__ . '/../header.php'; ?>
-<?php include __DIR__ . '/../comments/services/formatDate.php'; ?>
+<?php include_once __DIR__ . '/../header.php'; ?>
+<?php include_once __DIR__ . '/../comments/services/formatDate.php'; ?>
 
     <!-- section -->
     <div class="section section-grey">
@@ -19,8 +19,9 @@
                         <!-- post x3 -->
                         <div class="col-md-4">
                             <div class="post">
-                                <a class="post-img" href="/articles/<?= $popularArticle->getId() ?>"><img
-                                            src="/img/post-4.jpg"
+                                <a class="post-img" href="/articles/<?= $popularArticle->getId() ?>"><img class=""
+                                            src="<?php echo !empty($popularArticle->getPhoto())
+                                                ? $popularArticle->getPhoto() : '/img/post-4.jpg' ?>"
                                             alt=""></a>
                                 <div class="post-body">
                                     <div class="post-meta">
@@ -65,7 +66,9 @@
                             <div class="col-md-12">
                                 <div class="post post-row">
                                     <a class="post-img" href="/articles/<?= $article->getId() ?>"><img
-                                                src="/img/post-4.jpg" alt=""></a>
+                                                src="<?php echo !empty($article->getPhoto())
+				                                    ? $article->getPhoto() : '/img/post-4.jpg' ?>"
+                                                alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
                                             <a class="post-category cat-2"
@@ -99,7 +102,7 @@
                             <div class="section-row text-align-to-center">
 
                                 <!-- Пагинация страниц -->
-								<?php if ($page > 1 && $page < $countAllArticles): ?>
+								<?php if ($page > 1 && $page < $countPages && $countPages !== 1): ?>
                                     <a href="/../main/<?= $page - 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Назад</button>
                                     </a>
@@ -107,12 +110,12 @@
                                         <button class="primary-button">Далее</button>
                                     </a>
 								<?php endif; ?>
-								<?php if ($page == $countAllArticles): ?>
+								<?php if ($page === $countPages && $countPages !== 1): ?>
                                     <a href="/../main/<?= $page - 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Назад</button>
                                     </a>
 								<?php endif; ?>
-								<?php if ($page === 1): ?>
+								<?php if ($page === 1 && $countPages === 1): ?>
                                     <a href="/../main/<?= $page + 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Далее</button>
                                     </a>

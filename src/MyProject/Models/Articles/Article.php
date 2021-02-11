@@ -159,7 +159,7 @@ class Article extends ActiveRecordEntity
 		return $article;
 	}
 
-	public function updateFromArray(array $fields): Article
+	public function updateFromArray(array $fields, array $files = []): Article
 	{
 		if (empty($fields['name'])) {
 			throw new InvalidArgumentException('Не передано название статьи');
@@ -174,6 +174,17 @@ class Article extends ActiveRecordEntity
 		$this->setName($fields['name']);
 		$this->setText($fields['text']);
 		$this->setTheme($fields['theme']);
+		if (!empty($files) && empty($files['photo']['error'])) {
+			/*
+		 * проверка загружаемой картинки
+		 */
+			$result = Upload::checkPhoto($files, 'test');
+
+			if ($result['error']) {
+				throw new InvalidArgumentException($result['error']);
+			}
+			$this->setPhoto($result['result']);
+		}
 
 		$this->save();
 

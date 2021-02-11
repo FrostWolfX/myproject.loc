@@ -22,7 +22,8 @@
                             <div class="col-md-12">
                                 <div class="post post-row">
                                     <a class="post-img" href="/articles/<?= $article->getId() ?>"><img
-                                                src="/img/post-4.jpg"
+                                                src="<?php echo !empty($article->getPhoto())
+													? $article->getPhoto() : '/img/post-4.jpg' ?>"
                                                 alt=""></a>
                                     <div class="post-body">
                                         <div class="post-meta">
@@ -71,24 +72,24 @@
                             <div class="section-row text-align-to-center">
 
                                 <!-- Пагинация страниц -->
-	                            <?php if ($page > 1 && $page < $countPages): ?>
+								<?php if ($page > 1 && $page < $countPages && $countPages !== 1): ?>
                                     <a href="/../admin/view/<?= $page - 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Назад</button>
                                     </a>
                                     <a href="/../admin/view/<?= $page + 1; ?>">
                                         <button class="primary-button">Далее</button>
                                     </a>
-	                            <?php endif; ?>
-	                            <?php if ($page == $countPages): ?>
+								<?php endif; ?>
+								<?php if ($page === $countPages && $countPages !== 1): ?>
                                     <a href="/../admin/view/<?= $page - 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Назад</button>
                                     </a>
-	                            <?php endif; ?>
-	                            <?php if ($page === 1): ?>
+								<?php endif; ?>
+								<?php if ($page === 1 && $countPages === 1): ?>
                                     <a href="/../admin/view/<?= $page + 1; ?>">
                                         <button class="primary-button primary-button-highlighted">Далее</button>
                                     </a>
-	                            <?php endif; ?>
+								<?php endif; ?>
                                 <!-- /Пагинация страниц -->
 
                             </div>

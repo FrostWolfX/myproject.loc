@@ -1,5 +1,6 @@
 <?php
-function dateFormat(string $objectDate): string{
+function dateFormat(string $objectDate): string
+{
 	$input = explode(' ', $objectDate);
 
 	/*

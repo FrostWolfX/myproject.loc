@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b45316c-d6da-44e5-89ec-b34a5c1e8bef" name="Default Changelist" comment="" />
+    <list default="true" id="4b45316c-d6da-44e5-89ec-b34a5c1e8bef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MyProject/Controllers/AboutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/ArticlesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/ActiveRecordEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/ActiveRecordEntity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Models/Users/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Models/Users/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyProject/Services/EmailSender.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyProject/Services/EmailSender.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/viewComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/viewComments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/comments/comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comments/comments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/comments/services/formatDate.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comments/services/formatDate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errors/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errors/404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errors/headerForErrors.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errors/headerForErrors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mail/activationSuccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mail/activationSuccess.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mail/userActivation.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mail/userActivation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/otherPages/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/otherPages/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/signUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/signUp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/signUpSuccessful.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/signUpSuccessful.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/style1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/img/photos/ddf 23-01-2021 22+04+28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/img/photos/vlad 23-01-2021 22+04+00.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/img/photos/vlad 24-01-2021 21+01+57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,12 +45,16 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="56539924-a1c8-47a9-abcf-bb6bf37d3aac" name="localhost" />
     </servers>
   </component>
   <component name="ProjectId" id="1n6RfqQp8ZDX2JSNIESHdYpI1G9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,17 +63,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webshake-oop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="N:\OpenServer\domains\myBlog\src\MyProject\Models" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="N:\OpenServer\domains\myBlog\templates\general" />
     </key>
@@ -59,18 +102,51 @@
       <workItem from="1611403422270" duration="16994000" />
       <workItem from="1611436292529" duration="42000" />
       <workItem from="1611437570266" duration="2096000" />
-      <workItem from="1611507213600" duration="5342000" />
+      <workItem from="1611507213600" duration="7505000" />
+      <workItem from="1611576391642" duration="8425000" />
+      <workItem from="1611998103597" duration="3109000" />
+      <workItem from="1612095443692" duration="599000" />
+      <workItem from="1612126621313" duration="4915000" />
+      <workItem from="1612180100214" duration="4115000" />
+      <workItem from="1612206394242" duration="598000" />
+      <workItem from="1612270024147" duration="846000" />
+      <workItem from="1612351688290" duration="1204000" />
+      <workItem from="1612438823467" duration="489000" />
+      <workItem from="1612783375921" duration="52114000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/MyProject/Models/Articles/Article.php</url>
+          <line>180</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PhpRemoteDebugRunConfigurationType">
         <watch expression="$valueNameToSql" />
         <watch expression="$GLOBALS['IDE_EVAL_CACHE']['b45ca701-7140-4809-b800-8266effdf117']" />
+        <watch expression="$GLOBALS" />
+        <watch expression="$mail-&gt;Body" />
       </configuration>
     </watches-manager>
   </component>

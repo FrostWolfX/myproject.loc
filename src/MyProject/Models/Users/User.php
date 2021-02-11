@@ -90,8 +90,23 @@ class User extends ActiveRecordEntity
 		return 'users';
 	}
 
+	private static function escapeMarkdown($text)
+	{
+		return str_replace(
+			[' * ', '#', '(', ')', '[', ']', '_', '\\', '+', '`', '<', '>', '&', '"'],
+			['', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+			$text
+		);
+	}
+
 	public static function signUp(array $userData): User
 	{
+		if (self::escapeMarkdown($userData['nickname']) !== $userData['nickname'] ||
+			self::escapeMarkdown($userData['email']) !== $userData['email'] ||
+			self::escapeMarkdown($userData['password']) !== $userData['password'] ||
+			self::escapeMarkdown($userData['password2']) !== $userData['password2']) {
+			throw new InvalidArgumentException('Запрещено использовать специальные символы');
+		}
 		if (empty($userData['nickname'])) {
 			throw new InvalidArgumentException('Не передан nickname или такое имя уже существует');
 		}
@@ -180,7 +195,7 @@ class User extends ActiveRecordEntity
 		return true;
 	}
 
-	public static function changePassword(array $userData): User
+	public static function changePassword(array $userData, User $user): User
 	{
 		if (empty($userData['passwordOld'])) {
 			throw new InvalidArgumentException('Не передан пароль');
@@ -191,7 +206,6 @@ class User extends ActiveRecordEntity
 		if ($userData['passwordNew1'] !== $userData['passwordNew2']) {
 			throw new InvalidArgumentException('Пароли не совпадают');
 		}
-		$user = UsersAuthService::getUserByToken();
 
 		$user->password_hash = password_hash($userData['passwordNew1'], PASSWORD_DEFAULT);
 		$user->refreshAuthToken();
@@ -201,12 +215,11 @@ class User extends ActiveRecordEntity
 		return $user;
 	}
 
-	public static function changePhoto(array $userData): User
+	public static function changePhoto(array $userData, User $user): User
 	{
 		if (empty($userData['photo'])) {
 			throw new InvalidArgumentException('Фотография не передана');
 		}
-		$user = UsersAuthService::getUserByToken();
 		/*
 		 * проверка загружаемой картинки
 		 */

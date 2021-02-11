@@ -19,12 +19,21 @@ class AdminController extends AbstractController
 		}
 		if (preg_match('~^admin/view/(\d+)$~', $_GET['route'], $number)) {
 			$page = $number[1];
+			if ($page == 0) {
+				$page = 1;
+			}
 		}
 		$countAllArticles = count(Article::findAll());
 		$countPages = ceil($countAllArticles / 5);
 		$articles = Article::findLast5Article(5 * $page);
-		$this->view->renderHtml('admin/view.php',
-			['articles' => $articles, 'countPages' => $countPages, 'page' => (int)$page]);
+		if (count($articles) === 0) {
+			$articles = Article::findLast5Article(5 * $countPages);
+			$this->view->renderHtml('admin/view.php',
+				['articles' => $articles, 'countPages' => $countPages, 'page' => (int)$countPages]);
+		} else {
+			$this->view->renderHtml('admin/view.php',
+				['articles' => $articles, 'countPages' => $countPages, 'page' => (int)$page]);
+		}
 	}
 
 	public function viewComments(int $page = 1)
@@ -35,13 +44,24 @@ class AdminController extends AbstractController
 		if (!$this->user->isAdmin()) {
 			throw new ForbiddenException();
 		}
-		if (preg_match('~^admin/viewComments/(\d+)$~', $_GET['route'], $number)) {
+		if (preg_match('~^admin/comments/(\d+)$~', $_GET['route'], $number)) {
 			$page = $number[1];
+			if ($page == 0) {
+				$page = 1;
+			}
 		}
 		$countAllComments = count(Comment::findAll());
 		$countPages = ceil($countAllComments / 5);
 		$comments = Comment::findLast5Comments(5 * $page);
-		$this->view->renderHtml('admin/viewComments.php',
-			['comments' => $comments, 'countPages' => $countPages, 'countAllComments' => $countAllComments, 'page' => (int)$page]);
+		if (count($comments) === 0) {
+			$comments = Comment::findLast5Comments(5 * $countPages);
+			$this->view->renderHtml('admin/viewComments.php',
+				['comments' => $comments, 'countPages' => $countPages,
+					'countAllComments' => $countAllComments, 'page' => (int)$countPages]);
+		} else {
+			$this->view->renderHtml('admin/viewComments.php',
+				['comments' => $comments, 'countPages' => $countPages,
+					'countAllComments' => $countAllComments, 'page' => (int)$page]);
+		}
 	}
 }

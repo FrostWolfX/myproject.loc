@@ -3,6 +3,14 @@ try {
 	/*
  * Автозагрузка файлов, через аннонимную функцию
  */
+	/*
+	 * function myAutoLoader(string $className)
+{
+    require_once __DIR__ . '/src/' . str_replace('\\', '/', $className) . '.php';
+}
+
+spl_autoload_register('myAutoLoader');
+	 */
 	spl_autoload_register(function (string $className) {
 		require_once __DIR__ . '/../src/' . $className . '.php';
 	});

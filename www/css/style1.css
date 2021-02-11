@@ -112,6 +112,10 @@ RESPONSIVE
      font-size: 13px;
      font-weight:600;
 }
+ .img-to-center{
+     display: block;
+     margin: 0 auto;
+ }
  .input {
      height: 40px;
      border: 2px solid #eceef2;
@@ -127,6 +131,9 @@ RESPONSIVE
      height: 90px;
      padding: 15px;
 }
+ #textarea-admin{
+     height: 400px;
+ }
  .primary-button {
      padding: 9px 45px;
      border: none;
@@ -185,7 +192,7 @@ RESPONSIVE
      visibility: visible;
 }
  #nav-fixed {
-     position: fixed;
+     position: relative;
      left: 0;
      right: 0;
      top: 0;
@@ -985,4 +992,15 @@ RESPONSIVE
      .post.post-row .post-body p {
          display:none;
     }
+}
+
+.error{
+    background-color: #FFE6E6;
+    color: red;
+    padding: 5px;
+    margin: 15px
+}
+
+.article-image{
+
 }
