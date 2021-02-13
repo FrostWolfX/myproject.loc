@@ -1,18 +1,14 @@
 <?php
 try {
-	/*
- * Автозагрузка файлов, через аннонимную функцию
- */
-	/*
-	 * function myAutoLoader(string $className)
-{
-    require_once __DIR__ . '/src/' . str_replace('\\', '/', $className) . '.php';
-}
 
-spl_autoload_register('myAutoLoader');
+	require_once __DIR__ . '/../src/MyProject/library/vendor/autoload.php';
+
+	/*
+	 * Автозагрузка файлов, через аннонимную функцию
 	 */
 	spl_autoload_register(function (string $className) {
 		require_once __DIR__ . '/../src/' . $className . '.php';
+		//require_once __DIR__ . '/src/' . str_replace('\\', '/', $className) . '.php';
 	});
 
 	$routes = require __DIR__ . '/../src/routes.php';

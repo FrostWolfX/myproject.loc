@@ -46,9 +46,9 @@
                 <!-- nav -->
                 <ul class="nav-menu nav navbar-nav">
                     <!-- <li class=""><a href="">Свой собственный блог с блекджеком и на php</a></li> -->
-                    <li class="cat-1"><a href="#">Новые</a></li>
-                    <li class="cat-2"><a href="#">Популярные</a></li>
-                    <li class="cat-3"><a href="#">PHP</a></li>
+                    <li class="cat-1"><a href="/">На главную</a></li>
+                    <li class="cat-2"><a href="/about">О сайте</a></li>
+                    <li class="cat-3"><a href="/contact">Контакты</a></li>
                 </ul>
                 <!-- /nav -->
 

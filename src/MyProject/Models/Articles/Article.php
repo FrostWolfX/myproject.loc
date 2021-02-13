@@ -123,6 +123,12 @@ class Article extends ActiveRecordEntity
 		return 'articles';
 	}
 
+	public function getParsedText(): string
+	{
+		$parser = new \Parsedown();
+		return $parser->text($this->getText());
+	}
+
 	public static function createFromArray(array $fields, $file, User $author): Article
 	{
 		if (empty($fields['name'])) {

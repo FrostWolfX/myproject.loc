@@ -51,7 +51,7 @@
                             </figure>
 
                             <h3 class="text-center"><?= $article->getName() ?></h3>
-                            <div><?= $article->getText() ?></div>
+                            <div><?= $article->getParsedText() ?></div>
 
 
                             <!-- для кода или комментариев
